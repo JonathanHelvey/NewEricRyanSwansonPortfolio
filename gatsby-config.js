@@ -1,43 +1,106 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
- */
-
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
+/* eslint-disable quotes */
+/* eslint-disable react/no-array-index-key */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `Eric Swanson`,
+    description: `Actor`,
+    author: `Jonathan Helvey`,
+    siteUrl: `https://www.ericryanswanson.com`,
   },
   plugins: [
+    // Image Optimization Plugins
     `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+
+    // Styled Components for Styling
+    `gatsby-plugin-styled-components`,
+
+    // SEO and Sitemap Plugins
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        policy: [{ userAgent: `*`, allow: `/` }],
+      },
+    },
+
+    // Google Analytics using gatsby-plugin-google-gtag
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "UA-152847627-2", // Google Analytics / GA
+          // "AW-CONVERSION_ID", // Google Ads / Adwords / AW
+          // "DC-FLOODIGHT_ID", // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
+        ],
+        pluginConfig: {
+          head: true,
+          respectDNT: true,
+          // exclude: ["/preview/**", "/do-not-track/me/too/"],
+        },
+      },
+    },
+
+    // Manifest for PWA
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Eric Swanson Portfolio`,
+        short_name: `Portfolio`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `src/data/favicon_io/favicon-32x32.png`, // Path to your favicon
+      },
+    },
+
+    // Offline Support
+    `gatsby-plugin-offline`,
+
+    // Source Filesystem for Images
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/data/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+
+    // Source Filesystem for Markdown Pages
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        name: `markdown-pages`,
+        path: `${__dirname}/src/data`,
       },
     },
+
+    // Source Filesystem for JSON Data
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/data/`,
+      },
+    },
+
+    // Transformers
+    `gatsby-transformer-json`,
+    `gatsby-transformer-remark`,
+
+    // Typography (Optional)
+    // Consider removing or replacing with modern CSS-in-JS solutions
+    // {
+    //   resolve: `gatsby-plugin-typography`,
+    //   options: {
+    //     pathToConfigModule: `src/utils/typography.js`,
+    //   },
+    // },
   ],
-}
+};
