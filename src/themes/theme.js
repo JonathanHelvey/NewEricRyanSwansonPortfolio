@@ -46,8 +46,8 @@ export const theme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
-      sm: 540,  // Custom sm breakpoint
-      md: 766,  // Custom md breakpoint
+      sm: 540, // Custom sm breakpoint
+      md: 766, // Custom md breakpoint
       lg: 1020, // Custom lg breakpoint
       xl: 1600, // Custom xl breakpoint
       xxl: 1800, // Optional: Extra breakpoint
@@ -81,8 +81,7 @@ export const Section1 = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 1vh 4vw;
-  background-color: ${(props) =>
-    props.Primary ? props.theme.palette.text.secondary : props.theme.palette.background.default};
+  background-color: ${(props) => (props.Primary ? props.theme.palette.text.secondary : props.theme.palette.background.default)};
   @media (max-width: ${(props) => props.theme.custom.mobile.md}) {
     padding-left: 14vw;
     padding-right: 14vw;
@@ -93,20 +92,18 @@ export const SectionHeader = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: ${(props) =>
-    props.Center ? 'center' : props.Right ? 'flex-end' : props.Left ? 'flex-start' : 'stretch'};
+  align-items: ${(props) => (props.Center ? 'center' : props.Right ? 'flex-end' : props.Left ? 'flex-start' : 'stretch')};
   background-attachment: fixed;
   padding: 4vw 15vw;
   height: 40vh;
   width: auto;
-  background-color: ${(props) =>
-    props.Primary
-      ? props.theme.palette.text.secondary
-      : props.Secondary
+  background-color: ${(props) => (props.Primary
+    ? props.theme.palette.text.secondary
+    : props.Secondary
       ? props.theme.palette.secondary.main
       : props.Third
-      ? props.theme.palette.primary.main
-      : 'transparent'};
+        ? props.theme.palette.primary.main
+        : 'transparent')};
   @media (max-width: ${(props) => props.theme.custom.mobile.md}) {
     font-size: 34px;
   }
@@ -115,10 +112,8 @@ export const SectionHeader = styled.div`
 // Header1 styled component
 export const Header1 = styled.h1`
   font-weight: bolder;
-  font-size: ${(props) =>
-    props.lg ? '60px' : props.md ? '50px' : props.sm ? '46px' : 'inherit'};
-  text-align: ${(props) =>
-    props.Center ? 'center' : props.Right ? 'right' : props.Left ? 'left' : 'inherit'};
+  font-size: ${(props) => (props.lg ? '60px' : props.md ? '50px' : props.sm ? '46px' : 'inherit')};
+  text-align: ${(props) => (props.Center ? 'center' : props.Right ? 'right' : props.Left ? 'left' : 'inherit')};
   color: ${(props) => props.theme.palette.text.primary};
   @media (max-width: ${(props) => props.theme.custom.mobile.md}) {
     font-size: 34px;
@@ -129,11 +124,9 @@ export const Header1 = styled.h1`
 export const Header2 = styled.h2`
   font-weight: bolder;
   font-style: ${(props) => (props.italic ? 'italic' : 'normal')};
-  font-size: ${(props) =>
-    props.lg ? '42px' : props.md ? '32px' : props.sm ? '22px' : 'inherit'};
+  font-size: ${(props) => (props.lg ? '42px' : props.md ? '32px' : props.sm ? '22px' : 'inherit')};
   color: ${(props) => props.theme.palette.text.secondary};
-  text-align: ${(props) =>
-    props.Center ? 'center' : props.Right ? 'right' : props.Left ? 'left' : 'inherit'};
+  text-align: ${(props) => (props.Center ? 'center' : props.Right ? 'right' : props.Left ? 'left' : 'inherit')};
   @media (max-width: ${(props) => props.theme.custom.mobile.md}) {
     font-size: 24px;
   }

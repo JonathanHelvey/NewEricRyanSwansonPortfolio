@@ -20,3 +20,5 @@ export const GlobalStyles = createGlobalStyle`
   }
   /* Add any additional global styles here */
 `;
+
+export default GlobalStyles;

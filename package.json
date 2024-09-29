@@ -22,6 +22,7 @@
     "gatsby-transformer-json": "^5.13.1",
     "gatsby-transformer-remark": "^6.13.1",
     "gatsby-transformer-sharp": "^5.13.1",
+    "prop-types": "^15.8.1",
     "punycode": "^2.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -30,6 +31,12 @@
   "devDependencies": {
     "@babel/plugin-transform-react-jsx": "^7.25.2",
     "babel-plugin-styled-components": "^2.1.4",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-jsx-a11y": "^6.10.0",
+    "eslint-plugin-react": "^7.37.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
     "prettier": "^2.8.8"
   },
   "keywords": [
@@ -37,6 +44,7 @@
   ],
   "license": "0BSD",
   "scripts": {
+    "lint": "eslint ./src",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
