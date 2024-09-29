@@ -8,7 +8,7 @@ function IndexPage() {
     <Layout>
       <SEO title="Home" />
       <h1>Eric Swanson</h1>
-      <p>Actor Portfolio</p>
+      <p>Actor Portfolio!</p>
     </Layout>
   );
 }
