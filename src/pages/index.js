@@ -1,14 +1,15 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
-// import Header from '../components/header';
+import Hero from '../components/Hero';
+import Footer from '../components/Footer';
 
 function IndexPage() {
   return (
     <Layout>
       <SEO title="Home" />
-      <h1>Eric Swanson</h1>
-      <p>Actor Portfolio</p>
+      <Hero />
+      <Footer />
     </Layout>
   );
 }

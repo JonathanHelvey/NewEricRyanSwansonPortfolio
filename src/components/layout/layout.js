@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyledEngineProvider } from '@mui/material/styles'; // If using MUI v5
-import { ThemeProvider } from 'styled-components'; // If using styled-components
-import { theme } from '../../themes/theme'; // Define your MUI theme
+import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
+import CssBaseline from '@mui/material/CssBaseline';
+import { theme } from '../../themes/theme';
 import { GlobalStyles } from '../../themes/global';
 
 function Layout({ children }) {
   return (
-    <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={theme}>
-        <>
-          <GlobalStyles />
-          <main>{children}</main>
-        </>
-      </ThemeProvider>
-    </StyledEngineProvider>
+    <MuiThemeProvider theme={theme}>
+      <StyledThemeProvider theme={theme}>
+        <CssBaseline />
+        <GlobalStyles />
+        <main>{children}</main>
+      </StyledThemeProvider>
+    </MuiThemeProvider>
   );
 }
 
